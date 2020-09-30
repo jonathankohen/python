@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dashboard</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row my-4">
+                <div class="col">
+                    <h1>Welcome {{logged_in_user.name}}!</h1>
+                    <a href="/add_item">Add an Item</a>
+                </div>
+                <div class="col my-3 text-right">
+                    <a href="/logout">Logout</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3>Your Wish List:</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Added By</th>
+                                <th>Date Added</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        {% for item in favorites %}
+                        <tr>
+                            <th scope="row">
+                                <a href="/wish_items/{{item.id}}"
+                                    >{{item.name}}</a
+                                >
+                            </th>
+                            <td>{{item.uploader.name.capitalize}}</td>
+                            <td>{{item.created_at}}</td>
+                            <td>
+                                <a href="/remove/{{item.id}}"
+                                    >Remove from Wish List</a
+                                >
+                                {% if logged_in_user == item.uploader %} |
+                                <a href="/delete_item/{{item.id}}">Delete</a>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+
+                    <h3>Other Users' Wish List:</h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Added By</th>
+                                <th>Date Added</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        {% for item in not_favorites %}
+                        <tr>
+                            <th scope="row">
+                                <a href="/wish_items/{{item.id}}"
+                                    >{{item.name}}</a
+                                >
+                            </th>
+                            <td>{{item.uploader.name.capitalize}}</td>
+                            <td>{{item.created_at}}</td>
+                            <td>
+                                <a href="/add/{{item.id}}"
+                                    >Add to my Wish List</a
+                                >
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Django Survey</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <form action="/results" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input
+                    name="name"
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Please enter your name"
+                />
+            </div>
+
+            <select name="dojo_location" class="custom-select">
+                <option selected="">Where is your Dojo Located?</option>
+                <option value="NYC babyyyyy">NYC babyyyyy</option>
+                <option value="Chicago">Chicago</option>
+                <option value="San Jose">San Jose</option>
+            </select>
+
+            <select name="fav_lan" class="custom-select">
+                <option selected="">What's your favorite language?</option>
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Klingon">Klingon</option>
+            </select>
+
+            <div class="form-group">
+                <label for="comments">Comments (optional):</label>
+                <textarea
+                    name="comments"
+                    class="form-control"
+                    id="comments"
+                    rows="3"
+                ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Secondary</button>
+        </form>
+    </body>
+</html>

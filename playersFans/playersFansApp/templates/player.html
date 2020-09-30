@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Info about a player: {{playaPlaya.firstname}}</h1>
+    <p>Plays for: {{playaPlaya.team}}</p>
+    
+    <ul>
+    {% for fan in playaPlaya.fans.all %}
+        <li>{{fan.firstname}}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"
+                            >Home <span class="sr-only">(current)</span></a
+                        >
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col">
+                    <h1>Add a Dojo:</h1>
+                    <form action="/new_dojo" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input
+                                name="dojo_name"
+                                type="text"
+                                class="form-control"
+                                id="dojo_name"
+                                placeholder="Name"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <input
+                                name="dojo_city"
+                                type="text"
+                                class="form-control"
+                                id="dojo_city"
+                                placeholder="City"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <input
+                                name="dojo_state"
+                                type="text"
+                                class="form-control"
+                                id="dojo_state"
+                                placeholder="State"
+                            />
+                        </div>
+                        <button type="submit" class="btn btn-dark">
+                            Add
+                        </button>
+                    </form>
+                </div>
+
+                <div class="col">
+                    <h1>Add a Ninja:</h1>
+                    <form action="/new_ninja" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input
+                                name="first_name"
+                                type="text"
+                                class="form-control"
+                                id="first_name"
+                                placeholder="First Name"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <input
+                                name="last_name"
+                                type="text"
+                                class="form-control"
+                                id="last_name"
+                                placeholder="Last Name"
+                            />
+                        </div>
+                        <select name="ninja_dojo" class="custom-select">
+                            <option selected>Please select a Dojo</option>
+                            <option value="4">Main</option>
+                            <option value="5">Another</option>
+                            <option value="6">Black Belt</option>
+                        </select>
+                        <button type="submit" class="btn btn-dark my-3">
+                            Add
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col offset-4">
+                    <h1 class="my-3">All the Dojos:</h1>
+                    <ul>
+                        {% for dojo in all_dojos %}
+                        <li>
+                            {{dojo.name}}
+                            <ul>
+                                <!-- looping through each author's books! -->
+                                {% for ninja in dojo.ninjas.all %}
+                                <li>
+                                    <em
+                                        >{{ninja.first_name}}
+                                        {{ninja.last_name}}</em
+                                    >
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

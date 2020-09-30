@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bands You Might Like</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#!">Bands You Might Like</a>
+        </nav>
+
+        <div class="container">
+            <div class="row my-5">
+                <div class="col">
+                    <h5>Search for a band below:</h5>
+
+                    <form>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput"
+                                >Band Name:</label
+                            >
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="formGroupExampleInput"
+                                placeholder="Ex/Nirvana"
+                            />
+                        </div>
+                    </form>
+                </div>
+                <div id="spotify_section"></div>
+
+                <!-- <div class="col">
+                    <h5>Add a band to the database!</h5>
+                    <form>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput"
+                                >Band name:</label
+                            >
+                            <input
+                                name="form_name"
+                                type="text"
+                                class="form-control"
+                                id="formGroupExampleInput"
+                                placeholder="Ex/The Beatles"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2"
+                                >Add a band that this one sounds like:</label
+                            >
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="formGroupExampleInput2"
+                                placeholder="Ex/A Band That Sounds Like The Beatles"
+                            />
+                        </div>
+                    </form>
+                </div> -->
+            </div>
+        </div>
+
+        {% load static %}
+        <script src="{% static 'js/main.js' %}"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

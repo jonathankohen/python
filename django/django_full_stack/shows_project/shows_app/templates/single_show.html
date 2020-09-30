@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col my-4">
+                    <h1>{{show.title}}</h1>
+                    <p>Network: {{show.network}}</p>
+                    <p>Release Date: {{show.release_date}}</p>
+                    <p>Description: {{show.desc}}</p>
+                </div>
+                <div class="col my-4">
+                    <a href="/shows">Go Back</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <p>Last updated: <span id="datetime"></span></p>
+                    <a href="/shows/{{ show.id }}/edit"> Edit</a>
+                    |
+                    <a href="/shows/{{ show.id }}/delete"> Delete</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var dt = new Date();
+            document.getElementById('datetime').innerHTML = dt.toLocaleString();
+        </script>
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

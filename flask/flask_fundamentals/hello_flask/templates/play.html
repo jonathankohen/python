@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Play</title>
+    </head>
+    <body>
+        <h1 style="text-align: center;">Welcome!</h1>
+        <div
+            style="display: flex; justify-content: center; align-items: center;"
+        >
+            {% for x in range(0,times): %}
+            <div
+                style="
+                    background-color: cornflowerblue;
+                    height: 100px;
+                    width: 100px;
+                    margin: 20px;
+                "
+            ></div>
+            {% endfor %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<form action="/updatebook/{{book.id}}" method="post">
+    {% csrf_token %}
+    <h1>Edit {{book.title}}</h1>
+    <div class="form-group">
+        <input
+            name="form_book_title"
+            type="text"
+            class="form-control"
+            id="form_book_title"
+            placeholder="Name"
+            value="{{ title }}"
+        />
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Description:</label>
+        <textarea
+            name="form_book_desc"
+            class="form-control"
+            id="form_book_desc"
+            rows="3"
+        ></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark">
+        Add
+    </button>
+</form>
